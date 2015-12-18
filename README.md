@@ -12,6 +12,7 @@
     - json.data
 
 > 获取各项监测数值并把数据写入json.data,通过scp命令复制到WEB服务器端
+> 使用memcached每一小时抓取一次weather,防屏蔽
 
 
 ###WEB服务端
