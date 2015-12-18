@@ -9,7 +9,7 @@ from sensor.weather import weather
 
 
 def remote_cp(Dict):
-    fr = '/root/json.data'
+    fr = './json.data'
     with open(fr, 'w') as f:
         f.write(json.dumps(Dict))
         f.close()
