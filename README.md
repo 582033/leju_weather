@@ -8,7 +8,7 @@
 
 
 ###数据服务端
-    - run.py
+    - server_run.py
     - json.data
 
 > 获取各项监测数值并把数据写入json.data,通过scp命令复制到WEB服务器端
