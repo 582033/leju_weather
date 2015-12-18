@@ -3,9 +3,8 @@
 import time,sys,serial,os
 import json
 
-#from sensor import weather
 from sensor.dht import dht11
-from sensor.pm import pm
+from sensor.pm import ttl_pm
 from sensor.weather import weather
 
 
