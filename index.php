@@ -26,6 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <link rel="icon" href="favicon.ico">
     <style>
         div {font-size:15px; line-height:20px;}
+        #time {margin-top:20px;}
     </style>
     <body>
         <h3>室内:</h3>
@@ -34,6 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         <div id="h"></div>
         <h3>室外:</h3>
         <div id="weather">Reading...</div>
+        <div id="time"></div>
     </body>
 <script>
     setInterval(function(){
@@ -48,6 +50,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $('#t').text("温度: " + result.temperature + " ℃");
                 $('#h').text("湿度: " + result.humidity + "% RH");
                 $('#weather').text(result.weather);
+                $('#time').text("数据最后更新时间: " + result.time);
             }
         });
     }, 2000);

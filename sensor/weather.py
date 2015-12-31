@@ -17,7 +17,13 @@ class weather():
 
     def __get_weather(self):
         url = 'http://beijing.tianqi.com/dongchengqu/'
-        content = BeautifulSoup(requests.get(url).content)
+        headers = {
+            'Accept-Language' : 'zh-CN,zh;q=0.8',
+            'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36',
+            'Host' : 'beijing.tianqi.com',
+            'Cookie' : 'bdshare_firstime=1451003806108; cs_prov=01; cs_city=0101; ccity=101011501; a8205_pages=175; a8205_times=1; Hm_lvt_ab6a683aa97a52202eab5b3a9042a8d2=1451003806; Hm_lpvt_ab6a683aa97a52202eab5b3a9042a8d2=1451004424'
+        }
+        content = BeautifulSoup(requests.get(url, headers=headers, timeout=10).content)
 
         return content.find(class_='fuzhitxt')['value']
 

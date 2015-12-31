@@ -36,7 +36,8 @@ try:
             'temperature' : temperature,
             'vout' : vout,
             'dustdensity' : dustdensity,
-            'weather': wt_str
+            'weather': wt_str,
+            'time' : time.strftime('%Y-%m-%d %H:%M:%S')
         }
         print json.dumps(data)
         remote_cp(data)
