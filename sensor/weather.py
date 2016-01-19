@@ -11,7 +11,6 @@ class weather():
         self.mc = memcache.Client(['127.0.0.1:11211'], debug=True)
         self.cache_key = 'dongcheng_weather'
         self.cacht_time = 3600
-        self.indent_timeout = True
 
     def get_weather(self):
         return self.__cache_get(self.cache_key)
@@ -28,21 +27,18 @@ class weather():
         #content = BeautifulSoup(requests.get(url, headers=headers, timeout=(10, 3600)).content)
         try:
             content = BeautifulSoup(requests.get(url, headers=headers, timeout=10).content)
-            self.indent_timeout = False
+            return content.find(class_='fuzhitxt')['value']
         except requests.exceptions.ConnectTimeout as e:
-            #标识超时,
-            self.__get_weather()
-            time.sleep(3600)
+            #超时信息存入缓存3600秒
+            #self.__get_weather()
+            return '获取室外数据超时'
 
-        return content.find(class_='fuzhitxt')['value']
 
     def __cache_set(self, weather_str):
         self.mc.set(self.cache_key, weather_str, self.cacht_time)
 
     def __cache_get(self, key):
         cache_val = self.mc.get(self.cache_key)
-        if self.indent_timeout is True:
-            return '获取室外数据超时'
         if cache_val is None:
             weather_str = self.__get_weather()
             self.__cache_set(weather_str)
