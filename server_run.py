@@ -24,7 +24,7 @@ try:
     while True:
         #获取室外天气
         weather = wt.get_weather()
-        wt_str = "%s <br/> %s" % (weather[0], weather[1])
+        wt_str = "%s %s" % (weather[0], weather[1])
 
         #获取室内温度湿度
         humidity, temperature = dht11.get_dht()
