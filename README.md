@@ -19,5 +19,9 @@
     - index.php
     - json.data
 
+###依赖
+
+* pyserial
+* https://github.com/adafruit/Adafruit_Python_DHT
 > 通过`php -S 0.0.0.0:7777`使用php脚本开启简易HTTP服务,用于访问 index.php 展示数据
 > index.php 从`json.data`文件获取数据进行展示
