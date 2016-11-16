@@ -13,29 +13,31 @@ def remote_cp(Dict):
     with open(fr, 'w') as f:
         f.write(json.dumps(Dict))
         f.close()
-    os.system('scp %s yjiang@10.207.0.184:~/weather/' % fr)
+    os.system('scp %s root@leju.dev:/var/www/weather/' % fr)
     #print json_data
 
 
 try:
-    pm = ttl_pm('/dev/ttyUSB0', 2400)
+    #pm = ttl_pm('/dev/ttyUSB0', 2400)
     wt = weather()
     dht11 = dht11()
     while True:
         #获取室外天气
-        wt_str = wt.get_weather()
+        weather = wt.get_weather()
+        wt_str = "%s <br/> %s" % (weather[0], weather[1])
 
         #获取室内温度湿度
         humidity, temperature = dht11.get_dht()
 
         #获取PM2.5
-        vout, dustdensity = pm.show()
+        #vout, dustdensity = pm.show()
+        #vout, dustdensity = pm.show()
 
         data = {
             'humidity' : humidity,
             'temperature' : temperature,
-            'vout' : vout,
-            'dustdensity' : dustdensity,
+            #'vout' : vout,
+            #'dustdensity' : dustdensity,
             'weather': wt_str,
             'time' : time.strftime('%Y-%m-%d %H:%M:%S')
         }
