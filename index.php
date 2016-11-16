@@ -35,6 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         <div id="h"></div>
         <h3>室外:</h3>
         <div id="weather">Reading...</div>
+        <div id="outdoor_pm"></div>
         <div id="time"></div>
     </body>
 <script>
@@ -50,6 +51,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $('#t').text("温度: " + result.temperature + " ℃");
                 $('#h').text("湿度: " + result.humidity + "% RH");
                 $('#weather').text(result.weather);
+                $('#outdoor_pm').text(result.outdoor_pm);
                 $('#time').text("数据最后更新时间: " + result.time);
             }
         });

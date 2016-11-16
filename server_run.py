@@ -24,7 +24,8 @@ try:
     while True:
         #获取室外天气
         weather = wt.get_weather()
-        wt_str = "%s %s" % (weather[0], weather[1])
+        wt_str = weather[0]
+        outdoor_pm = weather[1]
 
         #获取室内温度湿度
         humidity, temperature = dht11.get_dht()
@@ -39,6 +40,7 @@ try:
             #'vout' : vout,
             #'dustdensity' : dustdensity,
             'weather': wt_str,
+            'outdoor_pm': outdoor_pm,
             'time' : time.strftime('%Y-%m-%d %H:%M:%S')
         }
         print json.dumps(data)

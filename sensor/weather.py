@@ -47,7 +47,7 @@ class weather():
         #content = BeautifulSoup(requests.get(url, headers=headers, timeout=(10, 3600)).content)
         try:
             content = BeautifulSoup(requests.get(url, headers=headers, timeout=10).content, "html.parser")
-            return "大使馆AQI:%s" % content.select('#aqiwgtvalue')[0].get_text().encode('utf-8')
+            return "大使馆AQI: %s" % content.select('#aqiwgtvalue')[0].get_text().encode('utf-8')
         except requests.exceptions.ConnectTimeout as e:
             #超时信息存入缓存3600秒
             #self.__get_weather()
