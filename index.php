@@ -20,14 +20,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 ?>
 <html>
     <head>
+        <title>乐居气象监测站</title>
+        <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+        <link rel="icon" href="favicon.ico">
         <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+        <style>
+            div {font-size:15px; line-height:20px;}
+            #time {margin-top:20px;}
+        </style>
     </head>
-    <title>乐居气象监测站</title>
-    <link rel="icon" href="favicon.ico">
-    <style>
-        div {font-size:15px; line-height:20px;}
-        #time {margin-top:20px;}
-    </style>
     <body>
         <h3>室内:</h3>
         <div id="pm">Reading...</div>
