@@ -30,6 +30,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         </style>
     </head>
     <body>
+    <!-- Github Fork Me -->
+    <a href="https://github.com/582033/leju_weather/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://dn-yjiang-cdn.qbox.me/forkme.png" alt="Fork me on GitHub" data-canonical-src="https://dn-yjiang-cdn.qbox.me/forkme.png"></a>
+    <!-- Github Fork Me -->
+
         <h3>室内:</h3>
         <div id="pm">Reading...</div>
         <div id="t"></div>
