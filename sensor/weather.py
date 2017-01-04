@@ -8,7 +8,7 @@ import time
 
 class weather():
     def __init__(self):
-        self.cache = FileSystemCache('./cache')
+        self.cache = FileSystemCache('/tmp/leju_weather_cache_dir')
         self.weather_cache_key = 'dongcheng_weather'
         self.aqi_cache_key = 'aqicn_num'
         self.cache_time = 3600
