@@ -18,7 +18,7 @@ def remote_cp(Dict):
 
 
 try:
-    #pm = ttl_pm('/dev/ttyUSB0', 2400)
+    pm = ttl_pm('/dev/ttyUSB0', 2400)
     wt = weather()
     dht11 = dht11()
     while True:
@@ -31,14 +31,14 @@ try:
         humidity, temperature = dht11.get_dht()
 
         #获取PM2.5
-        #vout, dustdensity = pm.show()
-        #vout, dustdensity = pm.show()
+        vout, dustdensity = pm.show()
+        vout, dustdensity = pm.show()
 
         data = {
             'humidity' : humidity,
             'temperature' : temperature,
-            #'vout' : vout,
-            #'dustdensity' : dustdensity,
+            'vout' : vout,
+            'dustdensity' : dustdensity,
             'weather': wt_str,
             'outdoor_pm': outdoor_pm,
             'time' : time.strftime('%Y-%m-%d %H:%M:%S')

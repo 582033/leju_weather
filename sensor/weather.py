@@ -3,12 +3,12 @@
 
 from bs4 import BeautifulSoup
 import requests
-import memcache
+from werkzeug.contrib.cache import FileSystemCache
 import time
 
 class weather():
     def __init__(self):
-        self.mc = memcache.Client(['leju.dev:11211'], debug=True)
+        self.cache = FileSystemCache('./cache')
         self.weather_cache_key = 'dongcheng_weather'
         self.aqi_cache_key = 'aqicn_num'
         self.cache_time = 3600
@@ -54,13 +54,13 @@ class weather():
             return '获取大使馆AQI数据超时'
 
     def __cache_get(self, cache_key):
-        cache_val = self.mc.get(cache_key)
+        cache_val = self.cache.get(cache_key)
         if cache_val is None:
             if cache_key == 'dongcheng_weather':
                 string = self.__get_weather()
             else:
                 string = self.__get_usa_aqi()
-            self.mc.set(cache_key, string, self.cache_time)
+            self.cache.set(cache_key, string, self.cache_time)
             return string
         else:
             return cache_val
