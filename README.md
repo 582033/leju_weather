@@ -20,6 +20,7 @@
 ###依赖
 
 * pyserial
+* werkzeug
 * https://github.com/adafruit/Adafruit_Python_DHT
 
 > 通过`php -S 0.0.0.0:7777`可使用php脚本开启简易HTTP服务,用于访问 index.php 展示数据
